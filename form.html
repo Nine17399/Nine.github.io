@@ -54,7 +54,18 @@
         const resposeEl=document.getElementById('response');
         form.onsubmit=e=>{
           e.preventDefault();
-
+     fetch('https://script.google.com/macros/s/AKfycby8nKnsIMhcB2PMX4cWDF8YBv-slFML7dT0UpSREYYY2cra3VAtIrsf7nxegz1T1KiTEg/exec'
+          {
+            method: 'POST',
+              body: new URLSearchParams(new FormData(form))
+        })
+      .then(() => {
+          responseEl.textContent ="ส่งข้อมูลสําเร็จ ขอบคุณ";
+          form.reset();
+        })
+        .catch(() => responseEl.textContent="เกิดข้อผิดพลาด ลองใหม่");
+        };
+        
         
       </script>
 
